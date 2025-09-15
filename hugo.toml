@@ -1,0 +1,65 @@
+# the site's base url
+baseURL = 'https://samplesite.com'
+
+# the site's language code
+languageCode = 'en-us'
+
+# the site's title
+title = 'sample site title'
+
+# custom parameters
+[params] 
+
+# the site's main description
+    description = 'sample site description'
+
+# menu items
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "services"
+    name = "Services"
+    url = "/services"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/blog"
+    weight = 30
+
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact"
+    weight = 40
+
+# allow markup to include html elements
+[markup.goldmark.renderer]
+  unsafe = true
+
+[caches]
+  [caches.assets]
+    dir = ':resourceDir/_gen'
+    maxAge = 0
+  [caches.getcsv]
+    dir = ':cacheDir/:project'
+    maxAge = 0
+  [caches.getjson]
+    dir = ':cacheDir/:project'
+    maxAge = 0
+  [caches.getresource]
+    dir = ':cacheDir/:project'
+    maxAge = 0
+  [caches.images]
+    dir = ':resourceDir/_gen'
+    maxAge = 0
+  [caches.modules]
+    dir = ':cacheDir/modules'
+    maxAge = 0
