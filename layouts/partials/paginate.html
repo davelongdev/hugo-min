@@ -1,8 +1,9 @@
 <!-- 
   this was the default source code for 
   {{ template "_internal/pagination.html" . }} 
-  copied from github repo 7/4/24
+  copied from the main hugo github repo 7/4/24
   may need to be updated at some point
+  https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/_partials/pagination.html
 -->
 
 {{- $validFormats := slice "default" "terse" }}
@@ -27,7 +28,7 @@
 {{- if in $validFormats $format }}
   {{- if gt $page.Paginator.TotalPages 1 }}
     <ul class="pagination pagination-{{ $format }}">
-      {{- partial (printf "partials/inline/pagination/%s" $format) $page }}
+      {{- partial (printf "inline/pagination/%s.html" $format) $page }}
     </ul>
   {{- end }}
 {{- else }}
@@ -36,7 +37,7 @@
 
 {{/* Format: default
 {{/* --------------------------------------------------------------------- */}}
-{{- define "partials/inline/pagination/default" }}
+{{- define "_partials/inline/pagination/default.html" }}
   {{- with .Paginator }}
     {{- $currentPageNumber := .PageNumber }}
 
@@ -107,7 +108,7 @@
 
 {{/* Format: terse
 {{/* --------------------------------------------------------------------- */}}
-{{- define "partials/inline/pagination/terse" }}
+{{- define "_partials/inline/pagination/terse.html" }}
   {{- with .Paginator }}
     {{- $currentPageNumber := .PageNumber }}
 
